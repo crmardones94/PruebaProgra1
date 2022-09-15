@@ -4,6 +4,7 @@
  */
 package prueba1.DTO;
 import java.util.Date;
+import prueba1.Metodos.Metodo;
 public class Usuario {
     private int ID;
     private String PrimerNombre;
@@ -46,10 +47,17 @@ public class Usuario {
     }
 
     public void setPrimerNombre(String PrimerNombre) {
-        this.PrimerNombre = PrimerNombre;
+        if(PrimerNombre.length()>4){
+            this.PrimerNombre = PrimerNombre;
+        }
+        else{
+            System.out.println("Nombre no valida debe tener al menos 4 caracteres");
+        }
+            
     }
 
     public String getSegundoNombre() {
+        
         return SegundoNombre;
     }
 
@@ -70,7 +78,13 @@ public class Usuario {
     }
 
     public void setApellidoMaterno(String ApellidoMaterno) {
-        this.ApellidoMaterno = ApellidoMaterno;
+        if(PrimerNombre.length()>4){
+            this.ApellidoMaterno = ApellidoMaterno;
+        }
+        else{
+            System.out.println("Apellido no validado debe tener al menos 4 caracteres");
+        }
+        
     }
 
     public int getRut() {
@@ -114,11 +128,18 @@ public class Usuario {
     }
 
     public String getEmail() {
+        
         return Email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        if(Email.contains("@") && (Email.contains(".com") || Email.contains(".cl")) && Email.length()>4){
+            this.Email = Email;
+        }
+        else{
+            System.out.println("El correo debe contener un @ y el .com ademas, debe tener al menos 4 caracteres");
+        }
+        
     }
 
     public String getPassword() {
@@ -126,7 +147,16 @@ public class Usuario {
     }
 
     public void setPassword(String Password) {
-        this.Password = Password;
+        Metodo met = new Metodo();
+        if(met.ValidaPassword(Password)){
+            this.Password = Password;
+            System.out.println("Password valida");
+        }
+        else{
+            System.out.println("Password ingresada no valida");
+        }
+        
+        
     }
     
     
