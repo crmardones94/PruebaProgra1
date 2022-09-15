@@ -3,6 +3,9 @@
  * @fecha 14-09-2022
  */
 package prueba1.DTO;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import prueba1.Metodos.Metodo;
 public class Usuario {
@@ -13,7 +16,7 @@ public class Usuario {
     private String ApellidoMaterno;
     private int Rut;
     private String Dv;
-    private Date FechaNacimiento;
+    private String FechaNacimiento;
     private int Telefono;
     private String NombreUsuario;
     private String Email;
@@ -27,7 +30,7 @@ public class Usuario {
         this.ApellidoMaterno = "";
         this.Rut = 0;
         this.Dv = "";
-        this.FechaNacimiento = new Date();
+        this.FechaNacimiento = "";
         this.Telefono = 0;
         this.NombreUsuario = "";
         this.Email = "";
@@ -92,7 +95,7 @@ public class Usuario {
     }
 
     public void setRut(int Rut) {
-        this.Rut = Rut;
+         this.Rut = Rut;
     }
 
     public String getDv() {
@@ -103,11 +106,12 @@ public class Usuario {
         this.Dv = Dv;
     }
 
-    public Date getFechaNacimiento() {
-        return FechaNacimiento;
+    public String getFechaNacimiento() {
+        
+        return Edad();
     }
 
-    public void setFechaNacimiento(Date FechaNacimiento) {
+    public void setFechaNacimiento(String FechaNacimiento) {
         this.FechaNacimiento = FechaNacimiento;
     }
 
@@ -116,15 +120,22 @@ public class Usuario {
     }
 
     public void setTelefono(int Telefono) {
+        
         this.Telefono = Telefono;
     }
 
     public String getNombreUsuario() {
+        
         return NombreUsuario;
     }
 
     public void setNombreUsuario(String NombreUsuario) {
-        this.NombreUsuario = NombreUsuario;
+        if(NombreUsuario.length()>=4){
+            this.NombreUsuario = NombreUsuario;
+        }
+        else{
+            System.out.println("nombre no valido");
+        }
     }
 
     public String getEmail() {
@@ -150,13 +161,18 @@ public class Usuario {
         Metodo met = new Metodo();
         if(met.ValidaPassword(Password)){
             this.Password = Password;
-            System.out.println("Password valida");
+            System.out.println("Password Ingresada correctamente");
         }
         else{
             System.out.println("Password ingresada no valida");
-        }
-        
-        
+        }       
+    }
+    public String Edad(){
+        LocalDate FechaActual = LocalDate.now();
+        DateTimeFormatter Formato = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate FechaNacFormato = LocalDate.parse(this.FechaNacimiento, Formato);
+        Period Edad = Period.between(FechaNacFormato, FechaActual);
+        return "La edad es: "+Edad.getYears()+" anios ";
     }
     
     

@@ -3,7 +3,9 @@
  * @fecha 14-09-2022
  */
 package prueba1.Metodos;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 public class Metodo {
     
@@ -31,14 +33,28 @@ public class Metodo {
         }       
     }
     
-    public static boolean ValidaEdad(Date fechaNac){
-        
-        Date fec = new Date();
-        String fechaActual = new SimpleDateFormat("yyyy/MM/dd").format(fec);
-        
-        
-        
-        
-        return false;
+    public static boolean ValidarDv(String rut, String dv){
+        boolean Validacion=false;
+        char Dv;
+        if(rut.length()==8 || rut.length()==7){
+            if(rut.contains(".")){
+                rut = rut.replace(".","");
+            }
+            if(rut.contains("-")){
+                rut = rut.replace("-", "");                
+            }
+            int rutAux = Integer.parseInt(rut);
+            Dv = dv.charAt(0);
+            int m = 0, s = 1;
+            for (; rutAux != 0; rutAux /= 10) {
+                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            }
+            if (Dv == (char) (s != 0 ? s + 47 : 75)) {
+                Validacion = true;
+            }   
+        }
+        return Validacion;
     }
+    
+    
 }
