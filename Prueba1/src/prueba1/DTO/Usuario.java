@@ -23,7 +23,7 @@ public class Usuario {
     private String Password;   
 
     public Usuario() {
-        this.ID = 0;
+        this.ID = 1000;
         this.PrimerNombre = "";
         this.SegundoNombre = "";
         this.ApellidoPaterno = "";
@@ -42,6 +42,7 @@ public class Usuario {
     }
 
     public void setID(int ID) {
+        
         this.ID = ID;
     }
 
@@ -120,8 +121,13 @@ public class Usuario {
     }
 
     public void setTelefono(int Telefono) {
+        if(String.valueOf(Telefono).length()>=8 && String.valueOf(Telefono).contains("56")){
+            this.Telefono = Telefono;
+        }
+        else{
+            System.out.println("Telefono debe tener 56 y mas de 8 caracteres");
+        }
         
-        this.Telefono = Telefono;
     }
 
     public String getNombreUsuario() {

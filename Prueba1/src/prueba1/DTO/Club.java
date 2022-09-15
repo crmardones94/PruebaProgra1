@@ -11,7 +11,7 @@ public class Club {
     private int anioFundado;
     private String Pais;
     private String Lema;
-    private String ValorSuscripcion;
+    private int ValorSuscripcion;
     private String Color1;
     private String Color2;
 
@@ -22,7 +22,7 @@ public class Club {
         this.anioFundado = 0;
         this.Pais = "";
         this.Lema = "";
-        this.ValorSuscripcion = "";
+        this.ValorSuscripcion = 0;
         this.Color1 = "";
         this.Color2 = "";
     }
@@ -75,11 +75,11 @@ public class Club {
         this.Lema = Lema;
     }
 
-    public String getValorSuscripcion() {
+    public int getValorSuscripcion() {
         return ValorSuscripcion;
     }
 
-    public void setValorSuscripcion(String ValorSuscripcion) {
+    public void setValorSuscripcion(int ValorSuscripcion) {
         this.ValorSuscripcion = ValorSuscripcion;
     }
 
