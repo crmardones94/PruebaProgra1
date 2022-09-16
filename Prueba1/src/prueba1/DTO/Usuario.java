@@ -51,7 +51,7 @@ public class Usuario {
     }
 
     public void setPrimerNombre(String PrimerNombre) {
-        if(PrimerNombre.length()>4){
+        if(PrimerNombre.length()>=4){
             this.PrimerNombre = PrimerNombre;
         }
         else{
@@ -74,7 +74,12 @@ public class Usuario {
     }
 
     public void setApellidoPaterno(String ApellidoPaterno) {
-        this.ApellidoPaterno = ApellidoPaterno;
+        if(ApellidoPaterno.length()>4){
+            this.ApellidoPaterno = ApellidoPaterno;
+        }
+        else{
+            System.out.println("Apellido no validado debe tener al menos 4 caracteres");
+        }
     }
 
     public String getApellidoMaterno() {
@@ -82,7 +87,7 @@ public class Usuario {
     }
 
     public void setApellidoMaterno(String ApellidoMaterno) {
-        if(PrimerNombre.length()>4){
+        if(ApellidoMaterno.length()>4){
             this.ApellidoMaterno = ApellidoMaterno;
         }
         else{
@@ -167,7 +172,6 @@ public class Usuario {
         Metodo met = new Metodo();
         if(met.ValidaPassword(Password)){
             this.Password = Password;
-            System.out.println("Password Ingresada correctamente");
         }
         else{
             System.out.println("Password ingresada no valida");

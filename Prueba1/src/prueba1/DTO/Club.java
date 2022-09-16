@@ -98,4 +98,7 @@ public class Club {
     public void setColor2(String Color2) {
         this.Color2 = Color2;
     }
+    
+    
+    
 }

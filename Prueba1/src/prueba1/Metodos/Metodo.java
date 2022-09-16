@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.time.LocalDateTime;
 public class Metodo {
     
     public static boolean ValidaPassword(String pass){
@@ -56,5 +57,10 @@ public class Metodo {
         return Validacion;
     }
     
-    
+    public static LocalDate CambiarFormato(String fecha){
+        LocalDate FechaActual = LocalDate.now();
+        DateTimeFormatter Formato = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate FecFormat = LocalDate.parse(fecha, Formato);
+        return FecFormat;
+    }
 }
