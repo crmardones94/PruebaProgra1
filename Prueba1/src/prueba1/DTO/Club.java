@@ -99,6 +99,18 @@ public class Club {
         this.Color2 = Color2;
     }
     
+    public String ConcatenarColores(){
+        String Colores = Color1+" "+Color2;
+        return Colores;
+    }
+    
+    public void CambiarNombreClub(String Nombre){
+        this.NombreClub = Nombre;
+        this.Codigo = Codigo+10;
+    }
+    
+    
+    
     
     
 }

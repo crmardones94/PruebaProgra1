@@ -3,8 +3,6 @@
  * @fecha 14-09-2022
  */
 package prueba1.DTO;
-import java.util.Date;
-import java.time.LocalDateTime;
 public class Suscripcion {
     private int Numero;
     private String FechaInicio;

@@ -114,7 +114,7 @@ public class Usuario {
 
     public String getFechaNacimiento() {
         
-        return Edad();
+        return FechaNacimiento;
     }
 
     public void setFechaNacimiento(String FechaNacimiento) {
@@ -169,8 +169,7 @@ public class Usuario {
     }
 
     public void setPassword(String Password) {
-        Metodo met = new Metodo();
-        if(met.ValidaPassword(Password)){
+        if(Metodo.ValidaPassword(Password)){
             this.Password = Password;
         }
         else{
@@ -183,6 +182,37 @@ public class Usuario {
         LocalDate FechaNacFormato = LocalDate.parse(this.FechaNacimiento, Formato);
         Period Edad = Period.between(FechaNacFormato, FechaActual);
         return "La edad es: "+Edad.getYears()+" anios ";
+    }
+    
+    public String CambiarContrasena(String Pass){
+        boolean validar = Metodo.ValidaPassword(Pass);
+        if(validar==true){
+            this.Password = Pass;
+            return "Password modificada";
+        }
+        else{
+            return "Password no modificada";
+        }
+    }
+    
+    public String ContrasenaPredeterminada(){
+        boolean validar = Metodo.ValidaPassword("DuocUC2022");
+        if(validar==true){
+            this.Password = "DuocUC2022";
+            return "Password modificada";
+        }
+        else{
+            return "Password no modificada";
+        }
+    }
+    
+    public String Login(String Usuario, String Pass){
+        if(NombreUsuario == Usuario && Password == Pass){
+            return "Login Validado Correctamente";
+        }
+        else{
+            return "Fallo en el login validar nombre de usuario o contrasena";
+        }
     }
     
     

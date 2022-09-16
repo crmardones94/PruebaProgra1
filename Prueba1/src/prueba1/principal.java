@@ -151,7 +151,12 @@ public class principal {
         sus3.setUsuario(usu.getNombreUsuario());      
         
         
-        System.out.println("Numero: "+sus.getNumero()+"\nUsuario: "+sus.getUsuario()+"\nAbono total: "+sus.getValorSuscripcion()+"\nEquipos: "+sus.getClub());
+        System.out.println("Numero: \t"+sus.getNumero()+"\nUsuario: \t"+sus.getUsuario()+"\nAbono Total: \t"+sus.getValorSuscripcion()+"\nEquipos: \t"+sus.getClub());
+        System.out.println("=================================");
+        System.out.println("Numero: \t"+sus2.getNumero()+"\nUsuario: \t"+sus2.getUsuario()+"\nAbono Total: \t"+sus2.getValorSuscripcion()+"\nEquipos: \t"+sus2.getClub());
+        System.out.println("=================================");
+        System.out.println("Numero: \t"+sus3.getNumero()+"\nUsuario: \t"+sus3.getUsuario()+"\nAbono Total: \t"+sus3.getValorSuscripcion()+"\nEquipos: \t"+sus3.getClub());
+        
         
         
         
